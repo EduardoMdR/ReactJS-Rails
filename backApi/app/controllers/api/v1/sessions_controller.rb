@@ -3,7 +3,7 @@ class Api::V1::SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
 
     if user.valid_password?(params[:password])
-      render json: user.as_json(only: %i[name email])
+      render json: user.as_json(only: %i[name email authentication_token])
     else
       head(:unauthorized)
     end

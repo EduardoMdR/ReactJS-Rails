@@ -8,4 +8,7 @@ class User < ApplicationRecord
 
   # Database relationships:
   belongs_to :role
+
+   # Database validations:
+  validates :email, uniqueness: true, presence: true
 end
