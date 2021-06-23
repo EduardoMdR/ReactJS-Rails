@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: 1.5
+  description: MyText
+  trailer: MyString
+  realese_date: 2021-06-23
+
+two:
+  name: MyString
+  price: 1.5
+  description: MyText
+  trailer: MyString
+  realese_date: 2021-06-23
