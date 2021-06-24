@@ -1,5 +1,8 @@
 class Api::V1::GamesController < ApplicationController
   before_action :set_game, only: [:show, :update, :destroy]
+  
+  acts_as_token_authentication_handler_for User, only: [:create, :update, :destroy]
+  before_action :isAdmin?, only: [:create, :update, :destroy]
 
   def index
     game = Game.all

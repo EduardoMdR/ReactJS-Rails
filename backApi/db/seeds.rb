@@ -12,22 +12,16 @@ unless already_seeded
   adm_role = Role.create!(name: 'Administrador')
   use_role = Role.create!(name: 'Usuário')
 
-  # User.create(
-  #   name: 'admin',
-  #   role: adm_role,
-  #   email: 'admin@admin.com.br',
-  #   password: '123456'
-  # )
-  # User.create(
-  #   name: 'empresa',
-  #   role: company_role,
-  #   email: 'empresa@empresa.com.br',
-  #   password: '123456'
-  # )
-  # User.create(
-  #   name: 'usuario',
-  #   role: user_role,
-  #   email: 'usuario@usuario.com.br',
-  #   password: '123456'
-  # )
+  User.create(
+    name: 'admin',
+    role: adm_role,
+    email: 'admin@admin',
+    password: '12345678'
+  )
+  User.create(
+    name: 'usuário',
+    role: use_role,
+    email: 'usuario@usuario',
+    password: '12345678'
+  )
 end
