@@ -9,7 +9,10 @@ class User < ApplicationRecord
 
   # Database relationships:
   belongs_to :role
+  has_many :wishlist, dependent: :destroy
 
-   # Database validations:
+  # Database validations:
   validates :email, uniqueness: true, presence: true
+  validates :role, inclusion: { in: 1..2 }, presence: true
+
 end

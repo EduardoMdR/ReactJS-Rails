@@ -1,7 +1,7 @@
 class Game < ApplicationRecord
     # Database relationships:
+    has_many :wishlist
     # has_many :game_genre, dependent: :destroy
-    # has_many :wishlist
 
     # Database validations:
     validates :name, length:{minimum: 2}, presence: true

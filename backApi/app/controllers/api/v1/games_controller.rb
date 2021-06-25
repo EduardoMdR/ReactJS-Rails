@@ -38,6 +38,17 @@ class Api::V1::GamesController < ApplicationController
     end
   end
 
+  # Wishlist
+  def wishlist
+    wishlist = Wishlist.create(wishlist_params)
+    wishlist.user_id = current_user.id
+    if wishlist.save
+      render json: wishlist, status: :created
+    else
+      render json: wishlist.errors, status: :unprocessable_entity
+    end
+  end
+
   private
   def set_game
     unless Game.exists?(params[:id])
@@ -49,5 +60,9 @@ class Api::V1::GamesController < ApplicationController
 
   def game_params
     params.require(:game).permit(:name, :price, :description, :trailer, :realese_date)
+  end
+
+  def wishlist_params
+    params.require(:wishlist).permit(:game_id)
   end
 end
