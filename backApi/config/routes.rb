@@ -5,6 +5,12 @@ Rails.application.routes.draw do
     namespace 'v1' do
       post 'sign_in', to: 'sessions#sign_in'
     
+      scope 'genres' do
+        get '/', to: 'genres#index', as: :genre_index
+        get '/:id', to: 'genres#show', as: :genre_show
+        put '/:id', to: 'genres#update', as: :genre_update
+      end
+
       scope 'games' do
         get '/', to: 'games#index', as: :game_index
         get '/:id', to: 'games#show', as: :game_show

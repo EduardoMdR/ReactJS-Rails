@@ -24,4 +24,9 @@ unless already_seeded
     email: 'usuario@usuario',
     password: '12345678'
   )
+
+  Genre.create(
+    name: 'Ação',
+    description: 'Explore lugares repletos de tiro, porrada e bomba'
+  )
 end
