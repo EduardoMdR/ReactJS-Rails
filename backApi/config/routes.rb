@@ -17,8 +17,13 @@ Rails.application.routes.draw do
         post '/create', to: 'games#create', as: :game_create
         put '/:id', to: 'games#update', as: :game_update
         delete '/:id', to: 'games#destroy', as: :game_destroy
-        post '/wishlist/:id', to: 'games#wishlist', as: :game_wishlist
-        delete 'wishlist/:id', to: 'games#destroy_wishlist', as: :game_wishlist_destroy
+        post '/wishlist/:id', to: 'games#wishlist', as: :wishlist_create
+        delete 'wishlist/:id', to: 'games#destroy_wishlist', as: :wishlist_destroy
+      end
+
+      scope 'game_genres' do
+        post '/:id', to: 'game_genres#create', as: :game_genres_create
+        delete '/:id', to: 'game_genres#destroy', as: :game_genres_destroy
       end
 
       scope 'wishlists' do
