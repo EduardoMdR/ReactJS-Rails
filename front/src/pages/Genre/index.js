@@ -17,7 +17,7 @@ export const Genre = () => {
       <Container>
         <h2>Gêneros</h2>
         <ul>
-          {genre.map((jogo) => {return <li key={jogo.id}><Link to={`genres/${jogo.id}`}>{jogo.name}</Link></li>})}
+          {genre.map((genero) => {return <li key={genero.id}><Link to={`genres/${genero.id}`}>{genero.name}</Link></li>})}
         </ul>
       </Container>
     </>
