@@ -1,6 +1,6 @@
 import { Switch, Route } from 'react-router-dom'
 import { Home } from './pages/home'
-import { Game } from './pages/game/game.js'
+import { Game } from './pages/Game/index.js'
 import { Genre } from './pages/genre/genre.js'
 import { GenreShow } from './pages/genre_show'
 
