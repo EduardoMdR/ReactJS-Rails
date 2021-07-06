@@ -1,23 +1,16 @@
 import { Switch, Route } from 'react-router-dom'
-import { Home } from './pages/home'
+import { Home } from './pages/Homepage/home'
 import { Game } from './pages/Game/index.js'
-import { Genre } from './pages/genre/genre.js'
+import { Genre } from './pages/Genre/index.js'
 import { GenreShow } from './pages/genre_show'
 
 export const MainRoutes = () => {
   return(
   <Switch>
     <Route path="/genres/:id" component={GenreShow} />
-    <Route path="/games">
-      <Game />
-    </Route>
-    
-    <Route path="/genres">
-      <Genre />
-    </Route>
-    <Route path="/">
-      <Home />
-    </Route>
+    <Route path="/games" component={Game} />
+    <Route path="/genres" component={Genre} />
+    <Route path="/" component={Home} />
   </Switch>
   )
 }
