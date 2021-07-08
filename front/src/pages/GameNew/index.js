@@ -11,7 +11,7 @@ export const GameNew = () => {
     api.post('games/create', {
       game: {
         name: name,
-        price: 20,
+        price: value,
       }
     }).catch((err) => {alert(err)})
   }

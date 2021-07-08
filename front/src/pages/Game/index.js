@@ -19,6 +19,8 @@ export const Game = () => {
         <ul>
           {game.map((jogo) => {return <li key={jogo.id}><Link to={`games/${jogo.id}`}>{jogo.name}</Link></li>})}
         </ul>
+
+        <Link to={'./games/new'}>Novo</Link>
       </Container>
     </>
   );

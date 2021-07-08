@@ -6,6 +6,7 @@ import { GameNew } from './pages/GameNew/index.js'
 import { GameEdit } from './pages/GameEdit/index.js'
 import { Genre } from './pages/Genre/index.js'
 import { GenreShow } from './pages/genre_show'
+import { Wishlist } from './pages/Wishlist/index.js'
 
 export const MainRoutes = () => {
   return(
@@ -17,6 +18,8 @@ export const MainRoutes = () => {
     
     <Route path="/genres/:id" component={GenreShow} />
     <Route path="/genres" component={Genre} />
+
+    <Route path="/wishlist" component={Wishlist} />
     
     <Route path="/" component={Home} />
   </Switch>

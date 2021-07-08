@@ -1,6 +1,7 @@
 import { Container } from './styles.js'
 import { useState, useEffect } from 'react'
 import { api } from '../../services/api'
+import { Link } from 'react-router-dom'
 
 export function GameShow({match}) {
 
@@ -14,6 +15,9 @@ export function GameShow({match}) {
   const addWishlist = () => {
     api.post(`games/wishlist/${match.params.id}`).catch((err) => {alert(err)})
   }
+  const removeWishlist = () => {
+    api.delete(`games/wishlist/${match.params.id}`).catch((err) => {alert(err)})
+  }
 
   useEffect(() => {
     api.get(`games/${match.params.id}`)
@@ -24,8 +28,11 @@ export function GameShow({match}) {
     <>
       <Container>
         <h2>{game.name}</h2>
+        <p>{game.price}</p>
+        <Link to={`./edit/${match.params.id}`}>editar</Link>
         <button type='button' onClick={() => {removeGame()}}>Apagar</button>
-        <button type='button' onClick={() => {addWishlist(game)}}>Lista de desejo</button>
+        <button type='button' onClick={() => {addWishlist()}}>Lista de desejo</button>
+        <button type='button' onClick={() => {removeWishlist()}}>Remover wishlist</button>
       </Container>
     </>
   );
