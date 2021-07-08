@@ -10,7 +10,13 @@ class Api::V1::GenresController < ApplicationController
   end
 
   def show
-    render json: {name: @genre.name, description: @genre.description}
+    gg = GameGenre.where(genre_id: @genre.id)
+    unless gg.exists?
+      render json: { status: 'Vazio', message: 'Gênero não possui nenhum jogo ainda'}, status: :ok
+    else
+      render json: gg
+    end
+    # render json: {name: @genre.name, description: @genre.description}
   end
 
   def update

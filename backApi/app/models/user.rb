@@ -13,6 +13,6 @@ class User < ApplicationRecord
 
   # Database validations:
   validates :email, uniqueness: true, presence: true
-  validates :role, inclusion: { in: 1..2 }, presence: true
+  # validates :role_id, inclusion: { in: 0..1 }
 
 end

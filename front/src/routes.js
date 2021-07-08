@@ -5,7 +5,7 @@ import { GameShow } from './pages/GameShow/index.js'
 import { GameNew } from './pages/GameNew/index.js'
 import { GameEdit } from './pages/GameEdit/index.js'
 import { Genre } from './pages/Genre/index.js'
-import { GenreShow } from './pages/genre_show'
+import { GenreShow } from './pages/GenreShow/index.js'
 import { Wishlist } from './pages/Wishlist/index.js'
 
 export const MainRoutes = () => {
