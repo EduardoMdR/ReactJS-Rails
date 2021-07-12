@@ -1,5 +1,6 @@
 import { Container } from './styles';
 import { useState } from 'react';
+import { api } from '../../services/api.js'
 
 export const Register = () => {
 
@@ -21,7 +22,16 @@ export const Register = () => {
     } else if(password !== passwordConfirm){
       alert('Senha e confirmação devem ser iguais');
     }
-    // api
+
+    api.post('users/create', {
+      user: {
+        name: name,
+        email: email,
+        password: password,
+        password_confirmation: passwordConfirm
+      }
+    }).catch((err) => {alert(err)})
+
   }
 
   return (

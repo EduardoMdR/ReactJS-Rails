@@ -4,6 +4,14 @@ Rails.application.routes.draw do
   namespace 'api' do
     namespace 'v1' do
       post 'sign_in', to: 'sessions#sign_in'
+
+      scope 'users' do
+        get '/', to: 'users#index', as: :user_index
+        get '/:id', to: 'users#show', as: :user_show
+        post '/create', to: 'users#create', as: :user_create
+        put '/:id', to: 'users#update', as: :user_update
+        delete '/:id', to: 'users#destroy', as: :user_destroy
+      end
     
       scope 'genres' do
         get '/', to: 'genres#index', as: :genre_index
@@ -14,6 +22,7 @@ Rails.application.routes.draw do
       scope 'games' do
         get '/', to: 'games#index', as: :game_index
         get '/:id', to: 'games#show', as: :game_show
+        get '/genre/:id', to: 'games#show_genre', as: :game_show_genre
         post '/create', to: 'games#create', as: :game_create
         put '/:id', to: 'games#update', as: :game_update
         delete '/:id', to: 'games#destroy', as: :game_destroy
