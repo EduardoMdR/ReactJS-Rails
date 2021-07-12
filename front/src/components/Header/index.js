@@ -18,6 +18,9 @@ const Header = () => {
           <li>
             <Link to="/wishlist">Lista de desejo</Link>
           </li>
+          <li>
+            <Link to="/login">Entrar</Link>
+          </li>
         </ul>
       </nav>
     </Container>
