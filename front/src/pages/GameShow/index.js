@@ -29,7 +29,8 @@ export function GameShow({match}) {
       <Container>
         <h2>{game.name}</h2>
         <p>{game.price}</p>
-        <Link to={`./edit/${match.params.id}`}>editar</Link>
+        <Link to={`./edit/${match.params.id}`}> editar </Link>
+        <Link to={`./genre/${match.params.id}`}> adicionar gênero </Link>
         <button type='button' onClick={() => {removeGame()}}>Apagar</button>
         <button type='button' onClick={() => {addWishlist()}}>Lista de desejo</button>
         <button type='button' onClick={() => {removeWishlist()}}>Remover wishlist</button>

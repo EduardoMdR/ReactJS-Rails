@@ -18,7 +18,7 @@ export function GenreShow({match}) {
         <h2>Gênreo</h2>
         {genre.map((gg) => 
           {return <li key={gg.id}>
-            <Link to={`games/${gg.game_id}`}>{gg.game_id}</Link>
+            <Link to={`../games/${gg.game_id}`}>{gg.game_id}</Link>
           </li>})
         }
       </Container>
