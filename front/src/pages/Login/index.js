@@ -1,22 +1,25 @@
 import { Container } from './styles';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+// import { api } from '../../services/api.js';
+import { useUserContext} from '../../hooks/useUserContext';
 
-export const Login = () => {
+export const Login = (setToken) => {
+
+  const {login} = useUserContext();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const history = useHistory();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if(email === ''){
       alert('Email deve estar preenchido.');
     }else if(password === ''){
       alert('Senha deve estar preenchida.')
     }
-    // Implementar login com a api
+    await login({email, password});
   }
   return (
     <Container>

@@ -5,16 +5,17 @@ import {
 
 import { MainRoutes } from './routes'
 import Header from "./components/Header"
+import UserProvider from "./hooks/useUserContext";
 
 
 function App() {
   return (
     <>
       <Router>
-        <div>
+        <UserProvider>
           <Header />
           <MainRoutes />
-        </div>
+        </UserProvider>
       </Router>
     </>
   );

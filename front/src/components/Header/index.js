@@ -1,7 +1,11 @@
 import {Container } from './styles'
 import { Link } from 'react-router-dom'
+import { useUserContext } from '../../hooks/useUserContext'
 
 const Header = () => {
+
+  const {user} = useUserContext();
+
   return (
     <Container>
       <nav>
@@ -19,7 +23,9 @@ const Header = () => {
             <Link to="/wishlist">Lista de desejo</Link>
           </li>
           <li>
-            <Link to="/login">Entrar</Link>
+            <Link to={user ? '/games' : '/login'}>
+              <span>{user ? user.name : 'Entrar'}</span>
+            </Link>
           </li>
         </ul>
       </nav>

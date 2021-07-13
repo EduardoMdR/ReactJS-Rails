@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import { Home } from './pages/Homepage/home'
 import { Game } from './pages/Game/index.js'
@@ -12,6 +13,11 @@ import { Login } from './pages/Login/index.js'
 import { Register } from './pages/Register/index.js'
 
 export const MainRoutes = () => {
+  const [token, setToken] = useState();
+  // if(!token){
+  //   return <Login setToken={setToken} />
+  // }
+
   return(
   <Switch>
     <Route path="/games/new" component={GameNew} />
@@ -28,7 +34,7 @@ export const MainRoutes = () => {
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
     
-    <Route path="/" component={Home} />
+    <Route exact path="/" component={Home} />
   </Switch>
   )
 }
