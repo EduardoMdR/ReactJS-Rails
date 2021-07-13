@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { useUserContext} from './hooks/useUserContext';
+import { Switch, Route, Redirect } from 'react-router-dom'
 import { Home } from './pages/Homepage/home'
 import { Game } from './pages/Game/index.js'
 import { GameShow } from './pages/GameShow/index.js'
@@ -13,10 +13,18 @@ import { Login } from './pages/Login/index.js'
 import { Register } from './pages/Register/index.js'
 
 export const MainRoutes = () => {
-  const [token, setToken] = useState();
-  // if(!token){
-  //   return <Login setToken={setToken} />
-  // }
+
+  const {user} = useUserContext();
+  console.log(user)
+  const PrivateRoute = ({ component: Component, ...rest}) => (
+    <Route {...rest} render={props => (
+      (user) ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to={{pathname: '/login', state: { from: props.location } }} />
+      )
+    )} />
+  )
 
   return(
   <Switch>
@@ -29,7 +37,7 @@ export const MainRoutes = () => {
     <Route path="/genres/:id" component={GenreShow} />
     <Route path="/genres" component={Genre} />
 
-    <Route path="/wishlist" component={Wishlist} />
+    <PrivateRoute path="/wishlist" component={Wishlist} />
 
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />

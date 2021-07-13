@@ -1,7 +1,6 @@
 import { Container } from './styles';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-// import { api } from '../../services/api.js';
 import { useUserContext} from '../../hooks/useUserContext';
 
 export const Login = (setToken) => {
