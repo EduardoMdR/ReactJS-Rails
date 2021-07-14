@@ -1,6 +1,10 @@
-import { Container } from './styles';
+import { Container, FormContainer } from './styles';
 import { useState } from 'react';
 import { api } from '../../services/api.js'
+import { Link } from 'react-router-dom'
+import { FiMail, FiLock, FiUser } from 'react-icons/fi';
+import Button from '../../components/Button/index.js'
+import Input from '../../components/Input/index.js'
 
 export const Register = () => {
 
@@ -36,15 +40,45 @@ export const Register = () => {
 
   return (
     <Container>
-      <h2>Cadastrar!</h2>
-      <form onSubmit={handleSubmit}>
-        <p>Nome: <input type='text' value={name} onChange={(event) => {setName(event.target.value)}} /></p>
-        <p>Email: <input type='text' value={email} onChange={(event) => {setEmail(event.target.value)}} /></p>
-        <p>Senha: <input type='password' value={password} onChange={(event) => {setPassword(event.target.value)}} /></p>
-        <p>Confirmar senha: <input type='text' value={passwordConfirm} onChange={(event) => {setPasswordConfirm(event.target.value)}} /></p>
-        
-        <button type='submit'>Criar conta</button>
-      </form>
+      <FormContainer>
+        <h1>Cadastrar!</h1>
+        <span>Complete todas informações necessarias e aproveite nosso site!</span>
+        <form onSubmit={handleSubmit}>
+          <Input
+            Icon={FiUser} 
+            value={name}
+            placeholder="Nome"
+            onChange={(event) => setName(event.target.value)}
+          />
+          <Input
+            Icon={FiMail} 
+            value={email}
+            placeholder="email"
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <div>
+            <Input
+              Icon={FiLock} 
+              value={password}
+              placeholder="Senha"
+              onChange={(event) => setPassword(event.target.value)}
+              type='password'
+            />
+            <Input
+              Icon={FiLock}  
+              value={passwordConfirm}
+              placeholder="Confirmar Senha"
+              onChange={(event) => setPasswordConfirm(event.target.value)}
+              type='password'
+            />
+          </div>
+          <Button type="submit">
+            Criar conta
+          </Button>       
+        </form>
+        <span style={{color: '#DCDCDC'}}>ja possui uma conta?</span>
+        <Link to='/login' style={{ textDecoration: 'none' }}><span>Entrar!</span></Link>
+      </FormContainer>
     </Container>
   )
 }

@@ -52,7 +52,7 @@ export const Login = (setToken) => {
           />
           <Button type="submit">
             Entrar
-        </Button>
+          </Button>
         </form>
         <span style={{color: '#DCDCDC'}}>Não tem uma conta da gallery gaming? </span>
         <Link to='/register' style={{ textDecoration: 'none' }}><span>Cadastrar!</span></Link>

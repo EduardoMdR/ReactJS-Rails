@@ -20,7 +20,6 @@ export const Container = styled.div`
 
   input {
     margin-left: 0.6rem;
-    height: 100%;
     width: 90%;
     font-size: 1.1rem;
     outline: none;
