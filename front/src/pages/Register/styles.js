@@ -4,7 +4,7 @@ import BG from '../../assets/background_login.jpg'
 export const Container = styled.section`
   display: flex;
   height: 100%;
-  min-height: 100vh;
+  min-height: 92vh;
   justify-content: center;
   background: url(${BG}) no-repeat center;
   background-size: cover;
