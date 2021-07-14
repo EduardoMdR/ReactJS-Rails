@@ -37,7 +37,7 @@ export const MainRoutes = () => {
     <Route path="/genres/:id" component={GenreShow} />
     <Route path="/genres" component={Genre} />
 
-    <PrivateRoute path="/wishlist" component={Wishlist} />
+    <Route path="/wishlist" component={Wishlist} />
 
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />

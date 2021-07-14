@@ -1,5 +1,5 @@
 class Api::V1::GamesController < ApplicationController
-  before_action :set_game, only: [:show, :update, :destroy, :wishlist, :destroy_wishlist]
+  before_action :set_game, only: [:show, :show_genre, :update, :destroy, :wishlist, :destroy_wishlist]
   
   acts_as_token_authentication_handler_for User, only: [:create, :update, :destroy, :wishlist, :destroy_wishlist]
   before_action :isAdmin?, only: [:create, :update, :destroy]
@@ -11,6 +11,11 @@ class Api::V1::GamesController < ApplicationController
 
   def show
     render json: {name: @game.name, price: @game.price}
+  end
+  
+  def show_genre
+    gg = GameGenre.where(game_id: @game.id)
+    render json: gg
   end
 
   def create
@@ -40,16 +45,12 @@ class Api::V1::GamesController < ApplicationController
 
   # Wishlist
   def wishlist
-    user = current_user.id
-    if Wishlist.find_by(game_id: @game.id, user_id: user).present?
-      render json: { status: 'Error', message: 'Jogo já está na sua lista de desejo'}, status: :ok
+    wishlist = Wishlist.create(wishlist_params)
+    wishlist.game_id = @game.id
+    if wishlist.save
+      render json: wishlist, status: :created
     else
-      wishlist = Wishlist.create(game_id: @game.id, user_id: user)
-      if wishlist.save
-        render json: wishlist, status: :created
-      else
-        render json: wishlist.errors, status: :unprocessable_entity
-      end
+      render json: wishlist.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -78,5 +79,9 @@ class Api::V1::GamesController < ApplicationController
 
   def game_params
     params.require(:game).permit(:name, :price, :description, :trailer, :realese_date)
+  end
+
+  def wishlist_params
+    params.require(:wishlist).permit(:user_id)
   end
 end

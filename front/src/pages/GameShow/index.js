@@ -2,9 +2,11 @@ import { Container } from './styles.js'
 import { useState, useEffect } from 'react'
 import { api } from '../../services/api'
 import { Link } from 'react-router-dom'
+import { useUserContext } from '../../hooks/useUserContext'
 
 export function GameShow({match}) {
 
+  const {user} = useUserContext();
   const [game, setGame] = useState({})
 
   const removeGame = () => {
@@ -13,8 +15,14 @@ export function GameShow({match}) {
   }
 
   const addWishlist = () => {
-    api.post(`games/wishlist/${match.params.id}`).catch((err) => {alert(err)})
+    console.log(user.id)
+    api.post(`games/wishlist/${match.params.id}`, {
+      wishlist: {
+        user_id: user.id
+      }
+    }).catch((err) => {alert(err)})
   }
+  
   const removeWishlist = () => {
     api.delete(`games/wishlist/${match.params.id}`).catch((err) => {alert(err)})
   }
