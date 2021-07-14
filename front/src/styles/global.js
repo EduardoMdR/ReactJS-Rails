@@ -15,8 +15,9 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: sans-serif;
-    background: url(${Background}) no-repeat center fixed;
-    background-size: cover;
+    margin: 10px;
+    /* background: url(${Background}) no-repeat center fixed;
+    background-size: cover; */
   }
 
 `;

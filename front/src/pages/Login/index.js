@@ -2,6 +2,7 @@ import { Container, FormContainer } from './styles';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useUserContext } from '../../hooks/useUserContext';
+import { Link } from 'react-router-dom'
 import { FiMail, FiLock, FiFacebook, FiTwitter, FiInstagram } from 'react-icons/fi';
 import Button from '../../components/Button/index.js'
 import Input from '../../components/Input/index.js'
@@ -54,7 +55,7 @@ export const Login = (setToken) => {
         </Button>
         </form>
         <span style={{color: '#DCDCDC'}}>Não tem uma conta da gallery gaming? </span>
-        <button type='button' onClick={() => history.push('/register')}>Cadastrar!</button>
+        <Link to='/register' style={{ textDecoration: 'none' }}><span>Cadastrar!</span></Link>
       </FormContainer>
     </Container>
   )

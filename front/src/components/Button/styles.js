@@ -8,9 +8,9 @@ export const Container = styled.button`
   color: #FFF;
   font-weight: bold;
   font-size: 1.1rem;
-  width: 100%;
-  max-width: 200px;
-  transition: 0.2s;
+  width: 96%;
+  /* max-width: 200px; */
+  transition: 0.4s;
   border-radius: 5px;
   &:hover {
     background-color: #363636;
