@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
-  background-color: #66543E;
+  background-color: #232323;
   height: 3.125rem;
   outline: none;
   border: none;
@@ -13,7 +13,7 @@ export const Container = styled.button`
   transition: 0.2s;
   border-radius: 5px;
   &:hover {
-    background-color: #56493A;
+    background-color: #363636;
     cursor: pointer;
     font-size: 1.2rem;
   }

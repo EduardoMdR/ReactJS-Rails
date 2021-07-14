@@ -1,7 +1,11 @@
-import { Container } from './styles';
+import { Container, FormContainer } from './styles';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useUserContext} from '../../hooks/useUserContext';
+import { useUserContext } from '../../hooks/useUserContext';
+import { FiMail, FiLock, FiFacebook, FiTwitter, FiInstagram } from 'react-icons/fi';
+import Button from '../../components/Button/index.js'
+import Input from '../../components/Input/index.js'
+
 
 export const Login = (setToken) => {
 
@@ -22,13 +26,36 @@ export const Login = (setToken) => {
   }
   return (
     <Container>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <p>Email: <input type='text' value={email} onChange={(event) => {setEmail(event.target.value)}} /></p>
-        <p>Senha: <input type='password' value={password} onChange={(event) => {setPassword(event.target.value)}} /></p>
-        <button type='submit'>Entrar</button>
-      </form>
-      <button type='button' onClick={() => history.push('/register')}>CRIAR CONTA</button>
+      <FormContainer>
+        <h1>Login</h1>
+        <span>Escolha sua conta para entrar</span>
+        <p>
+        <FiFacebook size={42} strokeWidth={1} color="#fff" />
+        <FiTwitter size={42} strokeWidth={1} color="#fff" />
+        <FiInstagram size={42} strokeWidth={1} color="#fff" />
+        </p>
+
+        <span>Ou por email</span>
+        <form onSubmit={handleSubmit}>
+          <Input
+            Icon={FiMail} 
+            value={email}
+            placeholder="Email"
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <Input 
+            Icon={FiLock} 
+            placeholder="Senha"
+            onChange={(event) => setPassword(event.target.value)}
+            type='password'
+          />
+          <Button type="submit">
+            Entrar
+        </Button>
+        </form>
+        <span style={{color: '#DCDCDC'}}>Não tem uma conta da gallery gaming? </span>
+        <button type='button' onClick={() => history.push('/register')}>Cadastrar!</button>
+      </FormContainer>
     </Container>
   )
 }
