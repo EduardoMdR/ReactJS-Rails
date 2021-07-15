@@ -2,7 +2,7 @@ import { Container, Grid, SlideShow, InfoShow, GameSection } from './styles.js'
 import { useState, useEffect } from 'react'
 import { api } from '../../services/api'
 import { Link } from 'react-router-dom'
-import { FiPlus, FiGlobe, FiCalendar, FiCpu } from 'react-icons/fi';
+import { FiPlus, FiGlobe, FiCalendar, FiCpu, FiEdit } from 'react-icons/fi';
 
 import { useUserContext } from '../../hooks/useUserContext'
 import PurchaseButton from '../../components/Button/Purchase/index'
@@ -39,7 +39,7 @@ export function GameShow({match}) {
   return (
     <>
       <Container>
-        <h1>{game.name}</h1>
+        <h1>{game.name} <Link to={`./edit/${match.params.id}`}><FiEdit size={22} strokeWidth={1} color="#fff" /></Link></h1>
         {/* <p>{game.price}</p>
         <Link to={`./edit/${match.params.id}`}> editar </Link>
         <Link to={`./genre/${match.params.id}`}> adicionar gênero </Link>

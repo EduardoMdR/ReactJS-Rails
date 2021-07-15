@@ -22,7 +22,7 @@ export const Wishlist = () => {
           <TopGrid>
             <h1>
               <img src='https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/fb/fb51ba66a6cf26b8db8f63d48167ce0a6882bbba_full.jpg' alt='img perfil'/>
-              <span>Eduardo Marques</span>
+              <span>{user.name}</span>
               <FiEdit size={22} strokeWidth={1} color="#fff" />
             </h1>
           </TopGrid>

@@ -10,7 +10,7 @@ class Api::V1::GamesController < ApplicationController
   end
 
   def show
-    render json: {name: @game.name, price: @game.price}
+    render json: @game
   end
   
   def show_genre

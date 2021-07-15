@@ -27,7 +27,7 @@ const UserProvider = ({children}) => {
       if(response.data){
         setUser(response.data)
         Cookies.set('gallery.user', response.data)
-        alert('Login efetuado');
+        // alert('Login efetuado');
         history.push('/wishlist')
       }
     }catch(err){

@@ -26,18 +26,28 @@ export const MainRoutes = () => {
     )} />
   )
 
+  const AdminRoute = ({ component: Component, ...rest}) => (
+    <Route {...rest} render={props => (
+      (user && user.id === 1) ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to={{pathname: '/home', state: { from: props.location } }} />
+      )
+    )} />
+  )
+
   return(
   <Switch>
-    <Route path="/games/new" component={GameNew} />
-    <Route path="/games/edit/:id" component={GameEdit} />
-    <Route path="/games/genre/:id" component={GameGenre} />
+    <AdminRoute path="/games/new" component={GameNew} />
+    <AdminRoute path="/games/edit/:id" component={GameEdit} />
+    <AdminRoute path="/games/genre/:id" component={GameGenre} />
     <Route path="/games/:id" component={GameShow} />
     <Route path="/games" component={Game} />
     
     <Route path="/genres/:id" component={GenreShow} />
     <Route path="/genres" component={Genre} />
 
-    <Route path="/wishlist" component={Wishlist} />
+    <PrivateRoute path="/wishlist" component={Wishlist} />
 
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
