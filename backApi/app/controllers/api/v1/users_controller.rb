@@ -1,8 +1,8 @@
 class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
-  acts_as_token_authentication_handler_for User, only: [:update, :destroy]
-  before_action :isAdmin?, only: [:index]
+  # acts_as_token_authentication_handler_for User, only: [:update, :destroy]
+  # before_action :isAdmin?, only: [:index]
 
   def index
     user = User.all
@@ -49,6 +49,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
   end
 end

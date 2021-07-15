@@ -1,6 +1,6 @@
 class Api::V1::GameGenresController < ApplicationController
   before_action :set_gg, only: [:create]
-  acts_as_token_authentication_handler_for User, only: [:create, :destroy]
+  # acts_as_token_authentication_handler_for User, only: [:create, :destroy]
 
   def create
     if @gg.present?

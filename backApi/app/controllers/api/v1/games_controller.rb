@@ -1,8 +1,8 @@
 class Api::V1::GamesController < ApplicationController
   before_action :set_game, only: [:show, :show_genre, :update, :destroy, :wishlist, :destroy_wishlist]
   
-  acts_as_token_authentication_handler_for User, only: [:create, :update, :destroy, :wishlist, :destroy_wishlist]
-  before_action :isAdmin?, only: [:create, :update, :destroy]
+  # acts_as_token_authentication_handler_for User, only: [:create, :update, :destroy, :wishlist, :destroy_wishlist]
+  # before_action :isAdmin?, only: [:create, :update, :destroy]
 
   def index
     game = Game.all
@@ -78,7 +78,7 @@ class Api::V1::GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :price, :description, :trailer, :realese_date)
+    params.require(:game).permit(:name, :price, :description, :trailer, :realese_date, images: [])
   end
 
   def wishlist_params

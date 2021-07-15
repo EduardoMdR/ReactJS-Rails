@@ -1,3 +1,3 @@
 class Role < ApplicationRecord
-  has_many :users, dependent: :nullify
+  has_many :users #, dependent: :nullify
 end
