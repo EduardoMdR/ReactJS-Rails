@@ -78,7 +78,7 @@ class Api::V1::GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :price, :description, :trailer, :realese_date, images: [])
+    params.require(:game).permit(:name, :price, :description, :developer, :trailer, :realese_date, images: [])
   end
 
   def wishlist_params

@@ -39,7 +39,11 @@ export function GameShow({match}) {
   return (
     <>
       <Container>
-        <h1>{game.name} <Link to={`./edit/${match.params.id}`}><FiEdit size={22} strokeWidth={1} color="#fff" /></Link></h1>
+        {user && user.id == 1 ? (
+          <h1>{game.name} <Link to={`./edit/${match.params.id}`}><FiEdit size={22} strokeWidth={1} color="#fff" /></Link></h1>
+        ) : (
+          <h1>{game.name}</h1>
+        )}
         {/* <p>{game.price}</p>
         <Link to={`./edit/${match.params.id}`}> editar </Link>
         <Link to={`./genre/${match.params.id}`}> adicionar gênero </Link>
@@ -51,15 +55,14 @@ export function GameShow({match}) {
           </SlideShow>
           <InfoShow>
             <img src={'https://img.hype.games/cdn/facad932-4082-4d20-980d-34bb385d2233Red-Dead-Redemption-2-Ultimate-Edition-Cover.jpg'} alt='img' />
-            <p>Red Dead Redemption 2, a épica aventura de mundo aberto da Rockstar Games aclamada pela crítica e o jogo mais bem avaliado desta geração
-              de consoles, agora chega aprimorado para PC com conteúdos inéditos no Modo História, melhorias visuais e muito mais.</p>
-            <span>R$ 29,99 <PurchaseButton>Comprar</PurchaseButton></span>
+            <p>{game.description}</p>
+            <span>R$ {game.price} <PurchaseButton>Comprar</PurchaseButton></span>
           </InfoShow>
         </Grid>
         <Grid>
           <WishlistButton>Lista de Desejo <FiPlus strokeWidth={3} color="#DCDCDC" /></WishlistButton>
-          <p><FiCpu size={14} strokeWidth={2} color="#DCDCDC"/> Desenvolvedora: RockStar</p>
-          <p><FiCalendar size={14} strokeWidth={2} color="#DCDCDC"/> Data de lançamento: 20/03/2018</p>
+          <p><FiCpu size={14} strokeWidth={2} color="#DCDCDC"/> Desenvolvedora: {game.developer}</p>
+          <p><FiCalendar size={14} strokeWidth={2} color="#DCDCDC"/> Data de lançamento: {game.realese_date}</p>
           <p><FiGlobe strokeWidth={3} color="#DCDCDC"/></p>
         </Grid>
         <Grid><h3>Jogos Relacionados</h3></Grid>

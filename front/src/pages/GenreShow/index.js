@@ -7,9 +7,13 @@ import { FiChevronsRight } from 'react-icons/fi';
 export function GenreShow({match}) {
 
   const [genre, setGenre] = useState([])
+  const [game, setGame] = useState([])
   const [game_genre, setGameGenre] = useState([])
+  
 
   useEffect(() => {
+    api.get('games')
+    .then((response) => {setGame(response.data)})
     api.get('genres')
     .then((response) => {setGenre(response.data)})
     api.get(`genres/${match.params.id}`)
@@ -29,25 +33,38 @@ export function GenreShow({match}) {
           })}
         </GridMenu>
         <GridGame>
-        <Link to={`/games/1`} style={{ textDecoration: 'none' }}>
-          <GameSection>
-              <img src={'https://img.hype.games/cdn/facad932-4082-4d20-980d-34bb385d2233Red-Dead-Redemption-2-Ultimate-Edition-Cover.jpg'} alt='img' />
-              <span>RDR II</span>
-          </GameSection>
-          </Link>
-          <GameSection>
-            <img src={'https://s2.glbimg.com/I9MFCGPOKeCJbvS7qVFsVupgUiE=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2017/n/q/Wqwk8kQueGABmPSAfawA/maxresdefault.jpg'} alt='img' />
-            <span>GTA IV</span>
-          </GameSection>
-          <GameSection>
-            <img src={'https://s2.glbimg.com/I9MFCGPOKeCJbvS7qVFsVupgUiE=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2017/n/q/Wqwk8kQueGABmPSAfawA/maxresdefault.jpg'} alt='img' />
-            <span>GTA IV</span>
-          </GameSection>
+          {game_genre.map((item,index) => 
+            <>
+              { 
+                game.map((jogo, subindex) =>
+                <>
+                  {
+                    (item.game_id === jogo.id) ? (
+                      <Link to={`/games/${jogo.id}`} style={{ textDecoration: 'none' }}>
+                        <GameSection>
+                          <img src={'https://img.hype.games/cdn/facad932-4082-4d20-980d-34bb385d2233Red-Dead-Redemption-2-Ultimate-Edition-Cover.jpg'} alt='img' />
+                          <span>{jogo.name}</span>
+                        </GameSection>
+                      </Link>
+                    ) : (
+                      <></>
+                    )
+                  }
+                </>
+                )
+              }
+            </>
+          )}
         </GridGame>
       </Container>
-      {game_genre.map((gg) => 
-          {return <p>{gg.game_id}</p>})
-        }
     </>
   );
 }
+
+
+<>
+  if(user)
+    <p>Usuário</p>
+  else
+    <p>Kayran veado</p>
+</>

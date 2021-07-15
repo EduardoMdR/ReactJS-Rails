@@ -10,6 +10,7 @@ export const GameNew = () => {
   const [description, setDescription] = useState('')
   const [iframe, setIframe] = useState('')
   const [realese_date, setRealese_date] = useState()
+  const [developer, setDeveloper] = useState('')
 
   const addGame = () => {
     api.post('games/create', {
@@ -19,6 +20,7 @@ export const GameNew = () => {
         description: description,
         trailer: iframe,
         realese_date: realese_date,
+        developer: developer,
       }
     }).catch((err) => {alert(err)})
   }
@@ -32,6 +34,7 @@ export const GameNew = () => {
           <p>Nome  : <input type='text' value={name} onChange={(event) => {setName(event.target.value)}} /></p>
           <p>Preço : <input type='number' value={value} onChange={(event) => {setValue(event.target.value)}} /></p>
           <p>Descrição : <textarea type='number' value={description} onChange={(event) => {setDescription(event.target.value)}} /></p>
+          <p>Desenvolvedor : <input type='text' value={developer} onChange={(event) => {setDeveloper(event.target.value)}} /></p>
           <p>Link iframe : <input type='text' value={iframe} onChange={(event) => {setIframe(event.target.value)}} /></p>
           <p>data do lançamento : <input type='date' value={realese_date} onChange={(event) => {setRealese_date(event.target.value)}} /></p>
           <button type='submit'>Adicionar</button>
