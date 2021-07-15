@@ -51,6 +51,7 @@ export const BottomGrid = styled.div`
 export const GameSection = styled.div`
   display: flex;
   padding: 1rem;
+  margin: 0.2rem;
   justify-content: space-around;
   background:rgba(0,0,0,0.5);
   .ola {

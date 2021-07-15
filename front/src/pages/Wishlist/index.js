@@ -4,14 +4,21 @@ import { useUserContext } from '../../hooks/useUserContext'
 import { Container, Grid, TopGrid, BottomGrid, GameSection, InfoSection, BuySection } from './styles.js'
 import { FiEdit } from 'react-icons/fi';
 import PurchaseButton from '../../components/Button/Purchase/index'
+import { Link } from 'react-router-dom'
 
 export const Wishlist = () => {
 
   const {user} = useUserContext();
   const [ wishlist, setWishlist ] = useState([])
+  const [game, setGame] = useState([])
+  const [genre, setGenre] = useState([])
 
   useEffect(() => {
-    api.get('wishlists')
+    api.get('games')
+    .then((response) => {setGame(response.data)})
+    api.get('genres')
+    .then((response) => {setGenre(response.data)})
+    api.get(`wishlists/${user.id}`)
     .then((response) => {setWishlist(response.data)}).catch((error) => {alert(error)})
   }, [])
 
@@ -44,29 +51,38 @@ export const Wishlist = () => {
           </BottomGrid>
           <BottomGrid>
             <h2>Lista de Desejo!</h2> 
-            <GameSection>
-              <InfoSection>
-                <img src={'https://img.hype.games/cdn/facad932-4082-4d20-980d-34bb385d2233Red-Dead-Redemption-2-Ultimate-Edition-Cover.jpg'} alt='img' />
-                <div>
-                  <p>Red Dead Redemption II</p>
-                  <h5>Desenvolvedora: RockStar</h5>
-                  <span>Ação</span><span>Mundo Aberto</span><span>Multijogador</span>
-                </div>
-                </InfoSection>
-              <BuySection>
-              <span>R$ 29,99 <PurchaseButton>Comprar</PurchaseButton></span>
-              </BuySection>
-            </GameSection>
+            {wishlist.map((item,index) => 
+              <>
+                { 
+                  game.map((jogo, subindex) =>
+                  <>
+                    {
+                      (item.game_id === jogo.id) ? (
+                        <GameSection>
+                          <InfoSection>
+                            <img src={'https://img.hype.games/cdn/facad932-4082-4d20-980d-34bb385d2233Red-Dead-Redemption-2-Ultimate-Edition-Cover.jpg'} alt='img' />
+                            <div>
+                              <p>{jogo.name}</p>
+                              <h5>Desenvolvedora: {jogo.developer}</h5>
+                              <span>Ação</span><span>Mundo Aberto</span><span>Multijogador</span>
+                            </div>
+                            </InfoSection>
+                          <BuySection>
+                          <span>R$ {jogo.price} <Link to={`./games/${jogo.id}`}><PurchaseButton>Comprar</PurchaseButton></Link></span>
+                          </BuySection>
+                        </GameSection>
+                      ) : (
+                        <></>
+                      )
+                    }
+                  </>
+                  )
+                }
+              </>
+            )}
           </BottomGrid>
         </Grid>
       </Container>
     </>
   );
 }
-        {/* {wishlist.map((desejo) => 
-          {return <li key={desejo.id}>
-            <GameSection>
-              <Link to={`games/${desejo.game_id}`}>{desejo.game_id}</Link>
-            </GameSection>
-          </li>})
-        } */}

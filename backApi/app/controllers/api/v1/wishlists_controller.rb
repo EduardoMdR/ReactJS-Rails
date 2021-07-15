@@ -4,14 +4,11 @@ class Api::V1::WishlistsController < ApplicationController
   # before_action :set_wishlist, only: [:show, :update, :destroy]
 
   def show
-    wishlist = Wishlist.where(user_id: 2)
+    wishlist = Wishlist.where(user_id: params[:id])
     if wishlist.nil?
       render json: { status: 'Vazio', message: 'Sua lista de desejo está vazia'}, status: :ok
     else
-      # wishlist.each do |lista|
-
-      # end
-      render json: wishlist #{game: Game.find(wishlist.game_id)}
+      render json: wishlist
     end
   end
 end

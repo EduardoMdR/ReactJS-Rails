@@ -36,7 +36,7 @@ Rails.application.routes.draw do
       end
 
       scope 'wishlists' do
-        get '/', to: 'wishlists#show', as: :wishlist_show
+        get '/:id', to: 'wishlists#show', as: :wishlist_show
       end
     end
   end
