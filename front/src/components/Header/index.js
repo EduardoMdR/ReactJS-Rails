@@ -13,7 +13,7 @@ const Header = () => {
         <Link to="/games" style={{ textDecoration: 'none' }}><span>Jogos</span></Link>
         <Link to="/genres" style={{ textDecoration: 'none' }}><span>Gêneros</span></Link>
         <Link to="/wishlist" style={{ textDecoration: 'none' }}><span>Lista de desejo</span></Link>
-        <Link  style={{ textDecoration: 'none' }} to={user ? '/games' : '/login'}>
+        <Link  style={{ textDecoration: 'none' }} to={user ? '/wishlist' : '/login'}>
           <span>{user ? user.name : 'Entrar'}</span>
         </Link>
       </nav>
