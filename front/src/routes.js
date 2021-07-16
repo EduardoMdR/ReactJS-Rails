@@ -31,7 +31,7 @@ export const MainRoutes = () => {
       (user && user.id === 1) ? (
         <Component {...props} />
       ) : (
-        <Redirect to={{pathname: '/home', state: { from: props.location } }} />
+        <Redirect to={{pathname: '/games', state: { from: props.location } }} />
       )
     )} />
   )

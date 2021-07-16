@@ -40,8 +40,18 @@ export const Wishlist = () => {
                 <p>2</p>
               </div>
               <div class='ola'>
-                <h4>Comprados</h4>
-                <p>0</p>
+              {user && user.id === 1 ? (
+                <>
+                  <h4>Criar novo jogo</h4>
+                  <Link to={'./games/new'}>Aqui!</Link>
+                </>
+              ) : (
+                <>
+                  <h4>Comprados</h4>
+                  <p>0</p>
+                </>
+              )}
+
               </div>
               <div class='ola'>
                 <h4>Amigos</h4>

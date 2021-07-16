@@ -9,6 +9,7 @@ import Input from '../../components/Input/index.js'
 export const Register = () => {
 
   const [name, setName] = useState('');
+  // const [file, setFile] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
@@ -32,7 +33,8 @@ export const Register = () => {
         name: name,
         email: email,
         password: password,
-        password_confirmation: passwordConfirm
+        password_confirmation: passwordConfirm,
+        // image: file[0],
       }
     }).catch((err) => {alert(err)})
 
@@ -72,6 +74,13 @@ export const Register = () => {
               type='password'
             />
           </div>
+          {/* <Input
+            Icon={FiMail} 
+            value={file}
+            placeholder="foto"
+            onChange={(event) => setFile(event.target.value)}
+            type='file'
+          /> */}
           <Button type="submit">
             Criar conta
           </Button>       
