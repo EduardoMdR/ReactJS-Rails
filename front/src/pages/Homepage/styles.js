@@ -24,3 +24,7 @@ export const Grid = styled.div`
   text-align: center;
   color: #ffffff;
 `;
+
+export const Carrossel = styled.div`
+  
+`;

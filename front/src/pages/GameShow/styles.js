@@ -57,7 +57,15 @@ export const Grid = styled.div`
 `;
 
 export const SlideShow = styled.div`
-  width: 55vh;
+  width: 90vh;
+  display: flex;
+  /* padding: 1rem; */
+  /* text-align: justify;
+  align-items: center;
+  justify-content: center; */
+  iframe {
+    width: 100%;
+  }
 `;
 
 export const InfoShow = styled.div`
@@ -66,8 +74,10 @@ export const InfoShow = styled.div`
   text-align: justify;
   font-size: 0.8rem;
   font-family: sans-serif;
+  margin: 1rem;
   img {
     width: 100%;
+    height: 100%;
   }
   span {
     /* float: right; */
