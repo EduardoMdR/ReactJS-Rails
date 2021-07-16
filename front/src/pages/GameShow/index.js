@@ -44,10 +44,10 @@ export function GameShow({match}) {
     <>
       <Container>
         <Section>
-        <button type='button' onClick={() => {removeWishlist()}}>Remover wishlist</button>
           {user && user.id == 1 ? (
             <>
               <h1>{game.name} <Link to={`./edit/${match.params.id}`}><FiEdit size={22} strokeWidth={1} color="#fff" /></Link> <button type='button' onClick={() => {removeWishlist()}}><FiTrash2 size={22} strokeWidth={1} color="#cc0000"/></button></h1>
+              <hr />
               <div class='ola'>
                 <span>|| ação ||</span>
                 <span><Link to={`./genre/${match.params.id}`}><FiPlus size={22} strokeWidth={1} color="#fff" /></Link></span>
@@ -56,13 +56,7 @@ export function GameShow({match}) {
           ) : (
             <h1>{game.name}</h1>
           )}
-          {/* <p>{game.price}</p>
-          <Link to={`./edit/${match.params.id}`}> editar </Link>
-          <Link to={`./genre/${match.params.id}`}> adicionar gênero </Link>
-          <button type='button' onClick={() => {removeGame()}}>Apagar</button>
-          <button type='button' onClick={() => {addWishlist()}}>Lista de desejo</button>
-          <button type='button' onClick={() => {removeWishlist()}}>Remover wishlist</button> */}
-          <Grid>
+          <Grid style={{background: 'rgba(256,256,256,0.1)'}}>
             <SlideShow>
               <iframe height="349" src={game.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </SlideShow>
@@ -98,6 +92,7 @@ export function GameShow({match}) {
             <p><FiCalendar size={14} strokeWidth={2} color="#DCDCDC"/> Data de lançamento: {game.realese_date}</p>
             <p><FiGlobe strokeWidth={3} color="#DCDCDC"/></p>
           </Grid>
+          <hr />
           <Grid><h3>Jogos Relacionados</h3></Grid>
           
           <Grid style={{ background: 'rgba(0,0,0,0.2)' }}>

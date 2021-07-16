@@ -17,11 +17,7 @@ export const Game = () => {
   return (
     <>
       <Container>
-        {user && user.id == 1 ? (
-          <h1>Explore todos nossos Jogos <Link to={'./games/new'}>Novo</Link></h1>
-        ) : (
-          <h1>Explore todos nossos Jogos</h1>
-        )}
+      <h1>Explore todos nossos Jogos</h1>
         <Grid>
           {game.map((jogo) => {
             return (
@@ -36,6 +32,11 @@ export const Game = () => {
             )
           })}
         </Grid>
+        {user && user.id === 1 ? (
+          <h1><Link to={'./games/new'}>Criar novo jogo</Link></h1>
+        ) : (
+          <></>
+        )}
       </Container>
     </>
   );

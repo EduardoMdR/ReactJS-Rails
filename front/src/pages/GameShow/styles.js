@@ -35,6 +35,9 @@ export const Section = styled.div`
     margin-bottom: 1rem;
     color: #FFFFFF;
   }
+  hr {
+    border-top: 1px solid rgba(256,256,256,0.1);
+  }
 `;
 
 export const Grid = styled.div`
@@ -44,7 +47,7 @@ export const Grid = styled.div`
   justify-content: space-around;
   max-width: 1080px;
   /* background:rgba(0,0,0,0.5); */
-  border-radius: 4px;
+  border-radius: 15px;
   p {
     color: #DCDCDC;
   }
@@ -59,10 +62,6 @@ export const Grid = styled.div`
 export const SlideShow = styled.div`
   width: 90vh;
   display: flex;
-  /* padding: 1rem; */
-  /* text-align: justify;
-  align-items: center;
-  justify-content: center; */
   iframe {
     width: 100%;
   }

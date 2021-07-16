@@ -1,6 +1,9 @@
-import { Container } from './styles.js'
+import { Container, Grid } from './styles.js'
 import { useState, useEffect } from 'react'
 import { api } from '../../services/api'
+import Button from '../../components/Button/index.js'
+import Input from '../../components/Input/index.js'
+import { FiBook, FiDollarSign, FiAlignCenter, FiCpu, FiCalendar, FiGlobe } from 'react-icons/fi';
 
 export function GameEdit({match}) {
 
@@ -42,24 +45,51 @@ export function GameEdit({match}) {
   return (
     <>
       <Container>
-      <h2>{game.name}</h2>
-      <h2>Editar Jogos</h2>
-
-      <form onSubmit={editGame}>
-        <div>
-          <span>Nome : </span>
-          <input defaultValue={game.name} value={name} onChange={(event) => setName(event.target.value)} />
-        </div>
-        <div>
-          <span>Preço : </span>
-          <input type='number' step='0.01' value={value} onChange={(event) => setValue(event.target.value)} />
-        </div>
-        <p>Descrição : <textarea type='number' value={description} onChange={(event) => {setDescription(event.target.value)}} /></p>
-        <p>Desenvolvedor : <input type='text' value={developer} onChange={(event) => {setDeveloper(event.target.value)}} /></p>
-        <p>Link iframe : <input type='text' value={iframe} onChange={(event) => {setIframe(event.target.value)}} /></p>
-        <p>data do lançamento : <input type='date' value={realese_date} onChange={(event) => {setRealese_date(event.target.value)}} /></p>
-        <button type='submit'>Editar jogo</button>
-      </form>
+      <h1>Editar Jogo</h1>
+      <Grid>
+        <form onSubmit={editGame}>
+          <Input
+            Icon={FiBook} 
+            value={name}
+            placeholder="Nome do jogo"
+            onChange={(event) => setName(event.target.value)}
+          />
+          <Input
+            Icon={FiDollarSign} 
+            value={value}
+            type="number"
+            step="0.01"
+            onChange={(event) => setValue(event.target.value)}
+          />
+          <Input
+            Icon={FiAlignCenter} 
+            value={description}
+            placeholder="Descrição"
+            onChange={(event) => setDescription(event.target.value)}
+          />
+          <Input
+            Icon={FiCpu} 
+            value={developer}
+            placeholder="Desenvolvedor"
+            onChange={(event) => setDeveloper(event.target.value)}
+          />
+          <Input
+            Icon={FiGlobe} 
+            value={iframe}
+            placeholder="Desenvolvedor"
+            onChange={(event) => setIframe(event.target.value)}
+          />
+          <Input
+            Icon={FiCalendar} 
+            value={realese_date}
+            type="date"
+            onChange={(event) => setRealese_date(event.target.value)}
+          />
+          <Button type="submit">
+            Adicionar
+          </Button>
+        </form>
+      </Grid>
       </Container>
     </>
   );
