@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_07_15_203500) do
     t.string "name"
     t.float "price"
     t.text "description"
+    t.string "developer"
     t.string "trailer"
     t.date "realese_date"
     t.datetime "created_at", null: false
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(version: 2021_07_15_203500) do
     t.datetime "updated_at", null: false
     t.integer "role_id"
     t.string "name"
+    t.float "balance"
     t.string "authentication_token", limit: 30
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true

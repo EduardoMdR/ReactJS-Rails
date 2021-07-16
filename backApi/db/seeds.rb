@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+u = User.find_by(id: 1)
+u.image.attach(io: File.open('./public/aaa.png'), filename: 'user.png')
+
 already_seeded = Role.count.positive?
 
 unless already_seeded
@@ -13,20 +17,28 @@ unless already_seeded
   use_role = Role.create!(name: 'Usuário')
 
   User.create(
-    name: 'admin',
-    role: adm_role,
-    email: 'admin@admin',
+    name: 'admin', 
+    role_id: adm_role.id,
+    email: 'admin@admin', 
     password: '12345678'
   )
   User.create(
     name: 'usuário',
-    role: use_role,
+    role_id: use_role.id,
     email: 'usuario@usuario',
     password: '12345678'
   )
 
-  Genre.create(
-    name: 'Ação',
-    description: 'Explore lugares repletos de tiro, porrada e bomba'
-  )
+  genre = [
+    'Ação', 'Aventura', 'Anime', 'Mundo Aberto', 
+    'Roguelike', 'Corrida', 'Esporte', 'Misterio', 
+    'Investigação', 'Sobrevivencia', 'Simulação', 
+    'RPG', 'Ficção Científica', 'Estratégia', 'Terro',
+    'Espacial', 'Muiltijogador', 'Cooperativo'
+  ]
+  genre.each do |genero|
+    Genre.create(
+      name: genero
+    )
+  end
 end
