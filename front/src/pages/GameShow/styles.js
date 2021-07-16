@@ -43,7 +43,8 @@ export const Section = styled.div`
 export const Grid = styled.div`
   display: flex;
   align-items: center;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
   justify-content: space-around;
   max-width: 1080px;
   /* background:rgba(0,0,0,0.5); */

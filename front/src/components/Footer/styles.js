@@ -2,15 +2,19 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   height: 3.5rem;
+  width: 85w;
   background-color: #181414;
-  border-radius: 10px;
+
+  /* margin: 2rem auto; */
+  border-radius: 1px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2.5rem;
 
   span {
-    font-size: 1.125rem;
+    font-size: 0.9rem;
     color: #fff;
     max-width: 300px;
     text-align: center;
@@ -18,3 +22,8 @@ export const Container = styled.header`
     padding: 0 1.5rem;
   }
 `
+
+export const Grid = styled.header`
+  color: #fff;
+`
+

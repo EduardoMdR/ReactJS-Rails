@@ -58,7 +58,7 @@ export function GameShow({match}) {
           )}
           <Grid style={{background: 'rgba(256,256,256,0.1)'}}>
             <SlideShow>
-              <iframe height="349" src={game.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe height="320" src={game.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </SlideShow>
             <InfoShow>
               <img src={'https://img.hype.games/cdn/facad932-4082-4d20-980d-34bb385d2233Red-Dead-Redemption-2-Ultimate-Edition-Cover.jpg'} alt='img' />

@@ -61,7 +61,7 @@ export const GameNew = () => {
             <Input
               Icon={FiGlobe} 
               value={iframe}
-              placeholder="Desenvolvedor"
+              placeholder="Iframe"
               onChange={(event) => setIframe(event.target.value)}
             />
             <Input

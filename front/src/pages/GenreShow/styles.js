@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.section`
   display: flex;
   height: 100%;
-  /* min-height: 93vh; */
+  min-height: 93vh;
   background-color: #17202A;
 `;
 
@@ -45,8 +45,8 @@ export const GameSection = styled.div`
   border-radius: 10px;
   padding: 0.2rem;
   background:rgba(0,0,0,0.1);
-  max-height: 125px;
-  height: 122px;
+  max-height: 130px;
+  height: 128px;
   position: relative;
   transition: 0.5s;
   span {

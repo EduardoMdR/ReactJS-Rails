@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { api } from '../../services/api.js'
 import { Link } from 'react-router-dom'
 import { FiChevronsRight } from 'react-icons/fi';
-import ACTION from '../../assets/genre_action.png'
 
 export function Genre({match}) {
 

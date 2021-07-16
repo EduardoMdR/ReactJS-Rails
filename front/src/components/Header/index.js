@@ -16,9 +16,13 @@ const Header = () => {
         <Link to="/genres" style={{ textDecoration: 'none' }}><span>Gêneros</span></Link>
         <Link to="/wishlist" style={{ textDecoration: 'none' }}><span>Lista de desejo</span></Link>
         <Link  style={{ textDecoration: 'none' }} to={user ? '/wishlist' : '/login'}>
-          <span>{user ? user.name : 'Entrar'}</span>
+          <span>{user ? (
+            <>
+              {user.name}
+              <span><Link to="./login"><FiLogOut color="#fff" /></Link></span>
+            </>
+            ) : ('Entrar')}</span>
         </Link>
-        <span><Link to="./login"><FiLogOut /></Link></span>
       </nav>
     </Container>
   );
