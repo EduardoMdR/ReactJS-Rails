@@ -1,10 +1,10 @@
-import { Container } from './styles.js'
+import { Container, Grid } from './styles.js'
 
 export const Home = () => {
   return (
     <>
       <Container>
-        <h2>Home</h2>
+        <h1>Bem Vindo a Gallery Gaming</h1>
       </Container>
     </>
   )

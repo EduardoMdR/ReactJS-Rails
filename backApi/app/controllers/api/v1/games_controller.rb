@@ -55,7 +55,8 @@ class Api::V1::GamesController < ApplicationController
   end
 
   def destroy_wishlist
-    user = current_user.id
+    user = User.find(params[:user])
+    puts "\n\n\n usuario #{user} \n\n\n"
     if Wishlist.find_by(game_id: @game.id, user_id: user).present?
       wishlist = Wishlist.find_by(game_id: @game.id, user_id: user)
       if wishlist.destroy

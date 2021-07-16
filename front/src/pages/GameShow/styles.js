@@ -15,6 +15,10 @@ export const Container = styled.section`
     /* text-align: center; */
     font-family: 'Otomanopee One', sans-serif;
   }
+  button {
+    border: none;
+    background-color: rgba(255, 255, 255,00)
+  }
 `;
 
 export const Section = styled.div`
@@ -23,6 +27,14 @@ export const Section = styled.div`
   margin: 1rem;
   text-align: center;
   color: #ffffff;
+  .ola {
+    margin: 0.2rem;
+    padding: 0.1rem;
+    border-radius: 4px;
+    text-align: left;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+  }
 `;
 
 export const Grid = styled.div`

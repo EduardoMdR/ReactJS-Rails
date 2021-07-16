@@ -27,7 +27,7 @@ Rails.application.routes.draw do
         put '/:id', to: 'games#update', as: :game_update
         delete '/:id', to: 'games#destroy', as: :game_destroy
         post '/wishlist/:id', to: 'games#wishlist', as: :wishlist_create
-        delete 'wishlist/:id', to: 'games#destroy_wishlist', as: :wishlist_destroy
+        delete 'wishlist/:id/:user', to: 'games#destroy_wishlist', as: :wishlist_destroy
       end
 
       scope 'game_genres' do

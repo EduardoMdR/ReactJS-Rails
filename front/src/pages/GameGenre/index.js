@@ -1,4 +1,4 @@
-import { Container } from './styles.js'
+import { Container, Grid, GenreSection} from './styles.js'
 import { useState, useEffect } from 'react'
 import { api } from '../../services/api.js'
 
@@ -15,7 +15,7 @@ export function GameGenre({match}) {
     .then((response) => {setGame(response.data)})
     api.get(`games/genre/${match.params.id}`)
     .then((response) => {setGG(response.data)}).catch((error) => {alert(error)})
-  }, [])
+  }, [gg])
 
   const addGG = (genero_id) => {
     api.post(`game_genres/${match.params.id}`, {
@@ -32,17 +32,49 @@ export function GameGenre({match}) {
   return (
     <>
       <Container>
-        <h2>{game.name}</h2>
-        <ul>
-          {genre.map((genero) => {return ( <li key={genero.id}>
-            {genero.name}
-            <button type='button' onClick={() => {addGG(genero.id)}}>+</button>
-            
-          </li>)})}
-        </ul>
-        {gg.map((game_genre) => {return <li key={game_genre.id}>
-          {game_genre.genre_id} <button type='button' onClick={() => {deleteGG(game_genre.id)}}>-</button>
-        </li>})}
+        <h1>Adicione gêneros ao {game.name}</h1>
+        <p>Gêneros presente</p>
+        <Grid>
+          {gg.map((item,index) => 
+            <>
+              { 
+                genre.map((genero, subindex) =>
+                <>
+                  {
+                    (item.genre_id === genero.id) ? (
+                      <GenreSection>
+                        <span>{genero.name}</span>
+                        
+                        <button type='button' onClick={() => {deleteGG(item.id)}}>
+                          <img src='https://cdn.akamai.steamstatic.com/store/promo/summer2021/genre_tiles/genre_tile_rpg.png?v=1' alt='img' />
+                        </button>
+                      </GenreSection>
+                    ) : (
+                      <></>
+                    )
+                  }
+                </>
+                )
+              }
+            </>
+          )}
+        </Grid>
+
+        <p>Adicionar novo</p>
+        <Grid>
+          {genre.map((genero) => {
+            return (
+              <>
+                <GenreSection>
+                  <span>{genero.name}</span>
+                  <button type='button' onClick={() => {addGG(genero.id)}}>
+                    <img src='https://cdn.akamai.steamstatic.com/store/promo/summer2021/genre_tiles/genre_tile_rpg.png?v=1' alt='img' />
+                  </button>
+                </GenreSection>
+              </>
+            )
+          })}
+        </Grid>
       </Container>
     </>
   );
