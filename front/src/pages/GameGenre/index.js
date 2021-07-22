@@ -1,6 +1,7 @@
 import { Container, Grid, GenreSection} from './styles.js'
 import { useState, useEffect } from 'react'
 import { api } from '../../services/api.js'
+import { Link } from 'react-router-dom'
 
 export function GameGenre({match}) {
 
@@ -32,7 +33,7 @@ export function GameGenre({match}) {
   return (
     <>
       <Container>
-        <h1>Adicione gêneros ao {game.name}</h1>
+        <h1>Adicione gêneros ao {game.name} <Link to={`../${match.params.id}`} style={{ textDecoration: 'none' }}><span style={{ color: '#fff' }}> | Voltar! | </span></Link></h1>
         <p>Gêneros presente</p>
         <Grid>
           {gg.map((item,index) => 

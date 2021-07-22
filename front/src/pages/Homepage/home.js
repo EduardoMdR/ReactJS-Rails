@@ -12,7 +12,7 @@ export const Home = () => {
         <Info>
           <div class='ola'>
             <h2>Descubra os melhores gêneros</h2>
-            <span>e se cadastre para manter um controle de saber o que jogar, sempre atualize sua lista de desejos e</span>
+            <span>e se cadastre para manter um controle de saber o que jogar, sempre atualize sua lista de desejos!</span>
           </div>
           <div class='ola'>
             <WishlistButton to="./genres"><Link to='./genres' style={{ color: '#fff' }}>Descobrir !</Link></WishlistButton>

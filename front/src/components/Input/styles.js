@@ -4,7 +4,7 @@ export const Container = styled.div`
   height: 3.125rem;
   background-color: white;
   width: 100%;
-  max-width: 350px;
+  max-width: 390px;
   min-width: 50px;
   display: flex;
   align-items: center;

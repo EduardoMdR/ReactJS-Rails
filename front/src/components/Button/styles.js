@@ -8,7 +8,7 @@ export const Container = styled.button`
   color: #FFF;
   font-weight: bold;
   font-size: 1.1rem;
-  width: 87%;
+  width: 97%;
   /* max-width: 200px; */
   transition: 0.4s;
   border-radius: 5px;

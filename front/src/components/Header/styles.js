@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.header`
   height: 3.5rem;
   background-color: #181414;
-  border-radius: 10px;
+  border-radius: 1px;
   display: flex;
   align-items: center;
   justify-content: space-between;

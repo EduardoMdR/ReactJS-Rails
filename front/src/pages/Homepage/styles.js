@@ -32,6 +32,9 @@ export const Info = styled.div`
   display: flex;
   justify-content: space-evenly;  background:rgba(0,0,0,0.5);
   margin-bottom: 2rem;
+  margin-top: 5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   border-radius: 5px;
   .ola {
     margin: 1rem;
